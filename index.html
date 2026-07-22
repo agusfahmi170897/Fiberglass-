@@ -339,17 +339,17 @@
     <!-- capacity filter -->
     <div class="flex flex-wrap gap-2.5 mt-8" id="capacity-filter">
       <button data-capacity="all" class="capacity-btn is-active px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Semua</button>
+      <button data-capacity="30" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">30L</button>
       <button data-capacity="40" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">40L</button>
-      <button data-capacity="60" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">60L</button>
+      <button data-capacity="50" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">50L</button>
       <button data-capacity="80" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">80L</button>
-      <button data-capacity="120" class="capacity-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">120L</button>
     </div>
 
     <!-- product grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8" id="product-grid">
 
       <!-- Card: 1 Pilah -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="40,60,80">
+      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="30,40,50,60,80">
         <span class="absolute top-3 left-3 z-10 bg-amber-500 text-stone-900 text-[11px] font-bold font-mono px-2.5 py-1 rounded-full shadow-soft">BEST SELLER</span>
         <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
           <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
@@ -368,7 +368,7 @@
       </article>
 
       <!-- Card: 2 Pilah -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="60,80,120">
+      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="30,40,50,60,80">
         <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
           <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
             <rect x="28" y="18" width="44" height="8" rx="3" fill="#2E7D32"/>
@@ -389,7 +389,7 @@
       </article>
 
       <!-- Card: 3 Pilah -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="80,120">
+      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="30,40,50,60,80">
         <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
           <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
             <rect x="24" y="18" width="52" height="8" rx="3" fill="#2E7D32"/>
@@ -410,7 +410,7 @@
       </article>
 
       <!-- Card: 4 Pilah -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="120">
+      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="30,40,50,60,80">
         <span class="absolute top-3 left-3 z-10 bg-forest-600 text-white text-[11px] font-bold font-mono px-2.5 py-1 rounded-full shadow-soft">PRODUK BARU</span>
         <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
           <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
@@ -432,29 +432,9 @@
         </div>
       </article>
 
-      <!-- Card: Karakter -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="40,60">
-        <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
-          <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
-            <path d="M25 32 h50 l-4 50 a6 6 0 0 1-6 5 H35 a6 6 0 0 1-6-5 Z" fill="#f7ba2c" stroke="#8f6300" stroke-width="2"/>
-            <circle cx="40" cy="50" r="4.5" fill="#2c2924"/>
-            <circle cx="60" cy="50" r="4.5" fill="#2c2924"/>
-            <path d="M40 63 q10 8 20 0" stroke="#2c2924" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <rect x="30" y="18" width="40" height="9" rx="4" fill="#2E7D32"/>
-          </svg>
-        </div>
-        <div class="p-5">
-          <h3 class="font-display font-bold text-stone-900 dark:text-white">Bak Sampah Karakter</h3>
-          <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Desain lucu bermotif karakter, favorit untuk area sekolah &amp; taman bermain.</p>
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-xs font-mono text-stone-400">Produksi ±10 hari</span>
-            <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Karakter" target="_blank" rel="noopener" class="text-forest-600 dark:text-forest-400 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
-          </div>
-        </div>
-      </article>
 
       <!-- Card: Outdoor -->
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="80,120">
+      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-capacities="30,40,50,60,80">
         <div class="h-44 bg-forest-50 dark:bg-stone-800/60 grid place-items-center">
           <svg viewBox="0 0 100 100" class="w-24 h-24" aria-hidden="true">
             <path d="M18 34 q32-16 64 0 l-4 4 q-28-14-56 0 Z" fill="#256b2a"/>
