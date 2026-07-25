@@ -227,33 +227,37 @@
 
       <!-- Visual -->
       <div class="relative lg:col-span-6 order-1 lg:order-2 pb-6 sm:pb-8">
-        <div class="relative rounded-3xl overflow-hidden shadow-softlg border border-stone-200 dark:border-stone-800" style="aspect-ratio: 4/3;">
-          <img src="assets/img/produk/bulat-50/1-pilah.jpg"
-            alt="Bak Sampah Fiberglass Bulat 50L 1 Pilah produksi Cahaya Putra Fiberglass"
-            class="hero-slide absolute inset-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60 transition-opacity duration-700"
-            style="opacity:1"
-            width="1000" height="750" loading="eager" fetchpriority="high" decoding="async" />
-          <img src="assets/img/produk/bulat-50/2-pilah.jpg"
-            alt="Bak Sampah Fiberglass Bulat 50L 2 Pilah produksi Cahaya Putra Fiberglass"
-            class="hero-slide absolute inset-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60 transition-opacity duration-700"
-            style="opacity:0"
-            width="1000" height="750" loading="lazy" decoding="async" />
-          <img src="assets/img/produk/bulat-50/3-pilah.jpg"
-            alt="Bak Sampah Fiberglass Bulat 50L 3 Pilah produksi Cahaya Putra Fiberglass"
-            class="hero-slide absolute inset-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60 transition-opacity duration-700"
-            style="opacity:0"
-            width="1000" height="750" loading="lazy" decoding="async" />
-          <img src="assets/img/produk/bulat-50/4-pilah.jpg"
-            alt="Bak Sampah Fiberglass Bulat 50L 4 Pilah produksi Cahaya Putra Fiberglass"
-            class="hero-slide absolute inset-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60 transition-opacity duration-700"
-            style="opacity:0"
-            width="1000" height="750" loading="lazy" decoding="async" />
-          <img src="assets/img/produk/bulat-50/5-pilah.jpg"
-            alt="Bak Sampah Fiberglass Bulat 50L 5 Pilah produksi Cahaya Putra Fiberglass"
-            class="hero-slide absolute inset-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60 transition-opacity duration-700"
-            style="opacity:0"
-            width="1000" height="750" loading="lazy" decoding="async" />
-          <div class="absolute inset-0 bg-gradient-to-t from-stone-950/40 via-transparent to-transparent"></div>
+        <div class="relative rounded-3xl overflow-hidden shadow-softlg border border-stone-200 dark:border-stone-800">
+          <div id="hero-track" class="flex overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory" style="aspect-ratio: 4/3;">
+            <img src="assets/img/produk/bulat-50/1-pilah.jpg"
+              alt="Bak Sampah Fiberglass Bulat 50L 1 Pilah produksi Cahaya Putra Fiberglass"
+              class="hero-slide snap-start shrink-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60"
+              width="1000" height="750" loading="eager" fetchpriority="high" decoding="async" />
+            <img src="assets/img/produk/bulat-50/2-pilah.jpg"
+              alt="Bak Sampah Fiberglass Bulat 50L 2 Pilah produksi Cahaya Putra Fiberglass"
+              class="hero-slide snap-start shrink-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60"
+              width="1000" height="750" loading="lazy" decoding="async" />
+            <img src="assets/img/produk/bulat-50/3-pilah.jpg"
+              alt="Bak Sampah Fiberglass Bulat 50L 3 Pilah produksi Cahaya Putra Fiberglass"
+              class="hero-slide snap-start shrink-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60"
+              width="1000" height="750" loading="lazy" decoding="async" />
+            <img src="assets/img/produk/bulat-50/4-pilah.jpg"
+              alt="Bak Sampah Fiberglass Bulat 50L 4 Pilah produksi Cahaya Putra Fiberglass"
+              class="hero-slide snap-start shrink-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60"
+              width="1000" height="750" loading="lazy" decoding="async" />
+            <img src="assets/img/produk/bulat-50/5-pilah.jpg"
+              alt="Bak Sampah Fiberglass Bulat 50L 5 Pilah produksi Cahaya Putra Fiberglass"
+              class="hero-slide snap-start shrink-0 w-full h-full object-contain bg-forest-50 dark:bg-stone-800/60"
+              width="1000" height="750" loading="lazy" decoding="async" />
+          </div>
+          <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-stone-950/40 via-transparent to-transparent"></div>
+
+          <button type="button" id="hero-prev" aria-label="Foto sebelumnya" class="absolute top-1/2 -translate-y-1/2 left-3 grid place-items-center w-9 h-9 rounded-full bg-white/80 dark:bg-stone-900/80 text-stone-700 dark:text-stone-200 shadow-softlg hover:bg-white dark:hover:bg-stone-900 transition-colors z-10">
+            <i class='bx bx-chevron-left text-xl'></i>
+          </button>
+          <button type="button" id="hero-next" aria-label="Foto berikutnya" class="absolute top-1/2 -translate-y-1/2 right-3 grid place-items-center w-9 h-9 rounded-full bg-white/80 dark:bg-stone-900/80 text-stone-700 dark:text-stone-200 shadow-softlg hover:bg-white dark:hover:bg-stone-900 transition-colors z-10">
+            <i class='bx bx-chevron-right text-xl'></i>
+          </button>
           <div id="hero-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
         </div>
 
@@ -376,9 +380,10 @@
     </div>
 
     <!-- product grid -->
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8" id="product-grid">
+    <div class="relative">
+      <div class="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-2 -mx-5 px-5 sm:mx-0 sm:px-0" id="product-grid">
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
         <span class="absolute top-3 left-3 z-10 bg-amber-500 text-stone-900 text-[11px] font-bold font-mono px-2.5 py-1 rounded-full shadow-soft">BEST SELLER</span>
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-50/1-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 50L 1 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
@@ -407,7 +412,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-50/2-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 50L 2 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -435,7 +440,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
         <span class="absolute top-3 left-3 z-10 bg-amber-500 text-stone-900 text-[11px] font-bold font-mono px-2.5 py-1 rounded-full shadow-soft">BEST SELLER</span>
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-50/3-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 50L 3 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
@@ -464,7 +469,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
         <span class="absolute top-3 left-3 z-10 bg-forest-600 text-white text-[11px] font-bold font-mono px-2.5 py-1 rounded-full shadow-soft">PRODUK BARU</span>
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-50/4-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 50L 4 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
@@ -493,7 +498,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-50">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-50/5-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 50L 5 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -521,7 +526,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-80/1-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 80L 1 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -549,7 +554,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-80/2-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 80L 2 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -577,7 +582,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-80/3-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 80L 3 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -605,7 +610,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-80/4-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 80L 4 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -633,7 +638,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-80">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-80/5-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 80L 5 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -661,7 +666,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-40/1-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 40L 1 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -689,7 +694,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-40/2-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 40L 2 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -717,7 +722,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-40/3-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 40L 3 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -745,7 +750,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-40/4-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 40L 4 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -773,7 +778,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="bulat-40">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/bulat-40/5-pilah.jpg" alt="Bak Sampah Fiberglass Bulat 40L 5 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -801,7 +806,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/oval-60/1-pilah.jpg" alt="Bak Sampah Fiberglass Oval 60L 1 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -829,7 +834,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/oval-60/2-pilah.jpg" alt="Bak Sampah Fiberglass Oval 60L 2 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -857,7 +862,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/oval-60/3-pilah.jpg" alt="Bak Sampah Fiberglass Oval 60L 3 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -885,7 +890,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/oval-60/4-pilah.jpg" alt="Bak Sampah Fiberglass Oval 60L 4 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -913,7 +918,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="oval-60">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/oval-60/5-pilah.jpg" alt="Bak Sampah Fiberglass Oval 60L 5 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -941,7 +946,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/kaleng-20/1-pilah.jpg" alt="Bak Sampah Fiberglass Kaleng 20L 1 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -969,7 +974,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/kaleng-20/2-pilah.jpg" alt="Bak Sampah Fiberglass Kaleng 20L 2 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -997,7 +1002,7 @@
         </div>
       </article>
 
-      <article class="product-card group relative rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
+      <article class="product-card group relative shrink-0 snap-start w-[82%] xs:w-[70%] sm:w-[46%] lg:w-[31%] rounded-2xl bg-white dark:bg-stone-900/60 border border-stone-200 dark:border-stone-800 overflow-hidden hover:shadow-softlg transition-shadow" data-category="kaleng-20">
         <div class="bg-forest-50 dark:bg-stone-800/60 p-4 flex items-center justify-center">
           <img src="assets/img/produk/kaleng-20/3-pilah.jpg" alt="Bak Sampah Fiberglass Kaleng 20L 3 Pilah" class="w-full h-auto object-contain rounded-xl js-lightbox cursor-zoom-in" loading="lazy" />
         </div>
@@ -1024,7 +1029,16 @@
           </div>
         </div>
       </article>
+      </div>
+
+      <button type="button" id="product-prev" aria-label="Produk sebelumnya" class="hidden sm:grid absolute top-1/2 -translate-y-1/2 -left-4 place-items-center w-11 h-11 rounded-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-softlg text-stone-600 dark:text-stone-300 hover:bg-forest-600 hover:text-white hover:border-forest-600 transition-colors z-10">
+        <i class='bx bx-chevron-left text-2xl'></i>
+      </button>
+      <button type="button" id="product-next" aria-label="Produk berikutnya" class="hidden sm:grid absolute top-1/2 -translate-y-1/2 -right-4 place-items-center w-11 h-11 rounded-full bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-softlg text-stone-600 dark:text-stone-300 hover:bg-forest-600 hover:text-white hover:border-forest-600 transition-colors z-10">
+        <i class='bx bx-chevron-right text-2xl'></i>
+      </button>
     </div>
+    <p class="sm:hidden text-center text-xs text-stone-400 dark:text-stone-500 mt-3">Geser untuk melihat produk lainnya →</p>
 
     <p id="no-result" class="hidden text-center text-stone-500 dark:text-stone-400 mt-8">Belum ada produk untuk kategori ini — hubungi kami untuk kebutuhan custom.</p>  </div>
 </section>
@@ -1649,6 +1663,8 @@
         if (show) visibleCount++;
       });
       noResult.classList.toggle('hidden', visibleCount !== 0);
+      var track = document.getElementById('product-grid');
+      if (track) track.scrollLeft = 0;
     }
 
     buttons.forEach(function(btn){
@@ -1962,6 +1978,24 @@
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape') closeLightbox();
     });
+  // ---------- Product carousel navigation ----------
+  (function initProductCarousel(){
+    var track = document.getElementById('product-grid');
+    var prevBtn = document.getElementById('product-prev');
+    var nextBtn = document.getElementById('product-next');
+    if (!track) return;
+
+    function scrollByCard(direction){
+      var card = track.querySelector('.product-card:not([style*="display: none"])') || track.querySelector('.product-card');
+      var gap = 24;
+      var amount = card ? (card.offsetWidth + gap) : 320;
+      track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function(){ scrollByCard(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ scrollByCard(1); });
+  })();
+
   // ---------- Galeri slideshow ----------
   (function initGallerySlideshow(){
     var track = document.getElementById('gallery-track');
@@ -1982,12 +2016,16 @@
 
   // ---------- Hero slideshow ----------
   (function initHeroSlideshow(){
+    var track = document.getElementById('hero-track');
     var slides = document.querySelectorAll('.hero-slide');
     var dotsWrap = document.getElementById('hero-dots');
-    if (!slides.length) return;
+    var prevBtn = document.getElementById('hero-prev');
+    var nextBtn = document.getElementById('hero-next');
+    if (!track || !slides.length) return;
 
     var current = 0;
     var dots = [];
+    var autoplayTimer = null;
 
     slides.forEach(function(_, i){
       var dot = document.createElement('button');
@@ -1999,17 +2037,37 @@
       dots.push(dot);
     });
 
-    function goTo(index){
-      slides[current].style.opacity = '0';
-      dots[current].className = 'w-2 h-2 rounded-full transition-colors bg-white/40';
-      current = index;
-      slides[current].style.opacity = '1';
-      dots[current].className = 'w-2 h-2 rounded-full transition-colors bg-white';
+    function setActiveDot(index){
+      dots.forEach(function(dot, i){
+        dot.className = 'w-2 h-2 rounded-full transition-colors ' + (i === index ? 'bg-white' : 'bg-white/40');
+      });
     }
 
-    setInterval(function(){
-      goTo((current + 1) % slides.length);
-    }, 4000);
+    function goTo(index){
+      current = (index + slides.length) % slides.length;
+      track.scrollTo({ left: track.clientWidth * current, behavior: 'smooth' });
+      setActiveDot(current);
+    }
+
+    function restartAutoplay(){
+      if (autoplayTimer) clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(function(){ goTo(current + 1); }, 4000);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function(){ goTo(current - 1); restartAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', function(){ goTo(current + 1); restartAutoplay(); });
+
+    // keep dots in sync if user swipes manually
+    var scrollTimeout;
+    track.addEventListener('scroll', function(){
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function(){
+        var index = Math.round(track.scrollLeft / track.clientWidth);
+        if (index !== current) { current = index; setActiveDot(current); }
+      }, 100);
+    });
+
+    restartAutoplay();
   })();
 </script>
 
