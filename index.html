@@ -367,7 +367,8 @@
 
     <!-- category filter -->
     <div class="flex flex-wrap gap-2.5 mt-8" id="category-filter">
-      <button data-category="bulat-50" class="category-btn is-active px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 50L</button>
+      <button data-category="all" class="category-btn is-active px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Semua</button>
+      <button data-category="bulat-50" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 50L</button>
       <button data-category="bulat-80" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 80L</button>
       <button data-category="bulat-40" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 40L</button>
       <button data-category="oval-60" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Oval 60L</button>
@@ -1431,7 +1432,7 @@
         <i class='bx bx-chevron-right text-2xl'></i>
       </button>
     </div>
-    <p class="sm:hidden text-center text-xs text-stone-400 dark:text-stone-500 mt-3">Geser untuk melihat foto lainnya →</p>    </div>
+    <p class="sm:hidden text-center text-xs text-stone-400 dark:text-stone-500 mt-3">Geser untuk melihat foto lainnya →</p>
   </div>
 </section>
 
@@ -1658,7 +1659,7 @@
       var visibleCount = 0;
       cards.forEach(function(card){
         var cardCategory = card.getAttribute('data-category') || '';
-        var show = cardCategory === category;
+        var show = category === 'all' || cardCategory === category;
         card.style.display = show ? '' : 'none';
         if (show) visibleCount++;
       });
@@ -1978,6 +1979,8 @@
     document.addEventListener('keydown', function(e){
       if (e.key === 'Escape') closeLightbox();
     });
+  })();
+
   // ---------- Product carousel navigation ----------
   (function initProductCarousel(){
     var track = document.getElementById('product-grid');
