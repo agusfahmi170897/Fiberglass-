@@ -125,6 +125,17 @@
   @media (min-width: 640px) {
     footer { padding-bottom: 0; }
   }
+
+  /* ---------- Print: hanya cetak invoice ---------- */
+  @media print {
+    body * { visibility: hidden; }
+    #invoice-modal, #invoice-modal * { visibility: visible; }
+    #invoice-modal {
+      position: absolute; inset: 0; display: block !important;
+      padding: 0; margin: 0; background: #fff;
+    }
+    #invoice-modal .max-w-xl { max-width: 100% !important; box-shadow: none !important; }
+  }
 </style>
 </head>
 
@@ -1608,6 +1619,10 @@
       <span id="cart-total" class="font-bold text-stone-900 dark:text-white">Rp 0</span>
     </div>
     <p class="text-xs text-stone-400 dark:text-stone-500">Harga final &amp; ongkir akan dikonfirmasi via WhatsApp.</p>
+    <button id="cart-invoice-btn" type="button"
+      class="w-full flex items-center justify-center gap-2 rounded-2xl border-2 border-forest-600 text-forest-700 dark:text-forest-400 dark:border-forest-500 font-semibold py-3 transition-colors hover:bg-forest-50 dark:hover:bg-forest-950 disabled:opacity-40 disabled:pointer-events-none">
+      <i class='bx bx-receipt text-lg'></i> Buat Invoice
+    </button>
     <a id="cart-checkout-btn" href="#" target="_blank" rel="noopener"
       class="flex items-center justify-center gap-2 rounded-2xl bg-forest-600 hover:bg-forest-700 text-white font-semibold py-3 transition-colors">
       <i class='bx bxl-whatsapp text-lg'></i> Pesan via WhatsApp
@@ -1848,6 +1863,9 @@
 
       cartTotal.textContent = totalPrice > 0 ? formatRupiah(totalPrice) : 'Hubungi kami';
 
+      var invoiceBtnEl = document.getElementById('cart-invoice-btn');
+      if (invoiceBtnEl) invoiceBtnEl.disabled = keys.length === 0;
+
       // Build WhatsApp checkout message
       if (keys.length === 0){
         cartCheckoutBtn.href = 'https://wa.me/' + waNumber;
@@ -1920,6 +1938,144 @@
     });
 
     renderCart();
+
+    // ---------- Invoice ----------
+    (function initInvoice(){
+      var invoiceBtn = document.getElementById('cart-invoice-btn');
+      var overlay = document.getElementById('invoice-overlay');
+      var modal = document.getElementById('invoice-modal');
+      var closeBtn = document.getElementById('invoice-close-btn');
+      var printBtn = document.getElementById('invoice-print-btn');
+      var waBtn = document.getElementById('invoice-wa-btn');
+      var custNameInput = document.getElementById('invoice-cust-name');
+      var custContactInput = document.getElementById('invoice-cust-contact');
+      var custBlock = document.getElementById('invoice-cust-block');
+      var custNameOut = document.getElementById('invoice-cust-name-out');
+      var custContactOut = document.getElementById('invoice-cust-contact-out');
+      var itemsWrap = document.getElementById('invoice-items');
+      var totalEl = document.getElementById('invoice-total');
+      var numberEl = document.getElementById('invoice-number');
+      var dateEl = document.getElementById('invoice-date');
+      if (!invoiceBtn) return;
+
+      var currentInvoiceNo = null;
+
+      function pad(n, len){
+        var s = String(n);
+        while (s.length < len) s = '0' + s;
+        return s;
+      }
+
+      // Nomor invoice: INV-YYYYMMDD-XXX, urut per hari, tersimpan di browser ini
+      function getNextInvoiceNumber(){
+        var today = new Date();
+        var datePart = today.getFullYear() + pad(today.getMonth() + 1, 2) + pad(today.getDate(), 2);
+        var storeKey = 'cpf_invoice_seq_' + datePart;
+        var seq = 1;
+        try {
+          seq = parseInt(localStorage.getItem(storeKey), 10) || 0;
+          seq += 1;
+          localStorage.setItem(storeKey, String(seq));
+        } catch (e) {
+          seq = 1; // localStorage tidak tersedia (mis. private mode) -> tetap jalan tanpa nomor persisten
+        }
+        return 'INV-' + datePart + '-' + pad(seq, 3);
+      }
+
+      function openInvoice(){
+        var keys = Object.keys(cart);
+        if (keys.length === 0) return;
+
+        currentInvoiceNo = getNextInvoiceNumber();
+        numberEl.textContent = currentInvoiceNo;
+        dateEl.textContent = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+
+        itemsWrap.innerHTML = '';
+        var totalPrice = 0;
+        var hasZeroPrice = false;
+        keys.forEach(function(key){
+          var item = cart[key];
+          var subtotal = item.price * item.qty;
+          totalPrice += subtotal;
+          if (item.price === 0) hasZeroPrice = true;
+
+          var tr = document.createElement('tr');
+          tr.className = 'border-b border-stone-100';
+          tr.innerHTML =
+            '<td class="py-2 pr-2">' + item.name + '</td>' +
+            '<td class="py-2 text-center font-mono">' + item.qty + '</td>' +
+            '<td class="py-2 text-right font-mono">' + (item.price > 0 ? formatRupiah(item.price) : '—') + '</td>' +
+            '<td class="py-2 text-right font-mono">' + (item.price > 0 ? formatRupiah(subtotal) : '—') + '</td>';
+          itemsWrap.appendChild(tr);
+        });
+
+        totalEl.textContent = (totalPrice > 0 && !hasZeroPrice) ? formatRupiah(totalPrice) : 'Hubungi kami';
+
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeInvoice(){
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      function syncCustomerBlock(){
+        var name = custNameInput.value.trim();
+        var contact = custContactInput.value.trim();
+        if (!name && !contact){
+          custBlock.classList.add('hidden');
+          return;
+        }
+        custBlock.classList.remove('hidden');
+        custNameOut.textContent = name || '-';
+        custContactOut.textContent = contact || '';
+      }
+      custNameInput.addEventListener('input', syncCustomerBlock);
+      custContactInput.addEventListener('input', syncCustomerBlock);
+
+      invoiceBtn.addEventListener('click', openInvoice);
+      closeBtn.addEventListener('click', closeInvoice);
+      overlay.addEventListener('click', closeInvoice);
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeInvoice();
+      });
+
+      printBtn.addEventListener('click', function(){
+        window.print();
+      });
+
+      waBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        var keys = Object.keys(cart);
+        var lines = ['Halo Cahaya Putra Fiberglass, berikut invoice pesanan saya:', ''];
+        lines.push('No. Invoice: ' + (currentInvoiceNo || '-'));
+        var custName = custNameInput.value.trim();
+        var custContact = custContactInput.value.trim();
+        if (custName) lines.push('Nama: ' + custName);
+        if (custContact) lines.push('No. HP/Instansi: ' + custContact);
+        lines.push('');
+        var totalPrice = 0;
+        var hasZeroPrice = false;
+        keys.forEach(function(key){
+          var item = cart[key];
+          totalPrice += item.price * item.qty;
+          if (item.price === 0) hasZeroPrice = true;
+          lines.push('- ' + item.name + ' x' + item.qty + ' set' + (item.price > 0 ? ' (' + formatRupiah(item.price * item.qty) + ')' : ''));
+        });
+        lines.push('');
+        lines.push('Total: ' + ((totalPrice > 0 && !hasZeroPrice) ? formatRupiah(totalPrice) : 'Hubungi kami'));
+        lines.push('Mohon konfirmasi ketersediaan, harga final, dan ongkir. Terima kasih.');
+        var message = encodeURIComponent(lines.join('\n'));
+        window.open('https://wa.me/' + waNumber + '?text=' + message, '_blank');
+      });
+    })();
   })();
 
 
@@ -2110,6 +2266,96 @@
     restartAutoplay();
   })();
 </script>
+
+<!-- ================= INVOICE MODAL ================= -->
+<div id="invoice-overlay" class="hidden fixed inset-0 z-[110] bg-stone-950/60 backdrop-blur-sm p-4 sm:p-6 items-center justify-center print:hidden"></div>
+<div id="invoice-modal" class="hidden fixed inset-0 z-[120] p-4 sm:p-6 items-center justify-center overflow-y-auto print:p-0 print:static print:block print:overflow-visible" role="dialog" aria-modal="true" aria-label="Invoice pesanan">
+  <div class="mx-auto w-full max-w-xl bg-white dark:bg-stone-900 rounded-2xl shadow-softlg print:shadow-none print:rounded-none print:max-w-none">
+
+    <!-- Toolbar (hidden on print) -->
+    <div class="flex items-center justify-between px-5 py-3.5 border-b border-stone-200 dark:border-stone-800 print:hidden">
+      <h3 class="font-display font-bold text-base text-stone-900 dark:text-white">Invoice Pesanan</h3>
+      <button id="invoice-close-btn" type="button" aria-label="Tutup invoice" class="grid place-items-center w-8 h-8 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500 dark:text-stone-300">
+        <i class='bx bx-x text-2xl'></i>
+      </button>
+    </div>
+
+    <!-- Data pelanggan (hidden on print) -->
+    <div class="px-5 pt-4 grid grid-cols-2 gap-3 print:hidden">
+      <div class="col-span-2 sm:col-span-1">
+        <label for="invoice-cust-name" class="text-xs font-semibold text-stone-500 dark:text-stone-400">Nama Pelanggan</label>
+        <input id="invoice-cust-name" type="text" placeholder="Opsional" class="mt-1 w-full rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 px-3 py-2 text-sm text-stone-800 dark:text-stone-100" />
+      </div>
+      <div class="col-span-2 sm:col-span-1">
+        <label for="invoice-cust-contact" class="text-xs font-semibold text-stone-500 dark:text-stone-400">No. HP / Instansi</label>
+        <input id="invoice-cust-contact" type="text" placeholder="Opsional" class="mt-1 w-full rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-stone-800 px-3 py-2 text-sm text-stone-800 dark:text-stone-100" />
+      </div>
+    </div>
+
+    <!-- ============ AREA YANG DICETAK ============ -->
+    <div id="invoice-print-area" class="p-5 sm:p-7 font-body text-stone-800">
+      <div class="flex items-start justify-between gap-4 border-b border-stone-200 pb-4">
+        <div class="flex items-center gap-3">
+          <img src="assets/img/logo/logo-cahaya-putra.png" alt="Cahaya Putra Fiberglass" class="h-12 w-auto object-contain" />
+          <div>
+            <p class="font-display font-bold text-stone-900 leading-tight">Cahaya Putra Fiberglass</p>
+            <p class="text-xs text-stone-500 leading-snug max-w-[220px]">Ktr. Desa Pasir Angin, Cipayung Datar, Kec. Megamendung, Kab. Bogor, Jawa Barat 16770</p>
+            <p class="text-xs text-stone-500">+62 896-8907-2275 · fahmiagus609@gmail.com</p>
+          </div>
+        </div>
+        <div class="text-right shrink-0">
+          <p class="font-display font-bold text-forest-700 text-sm">INVOICE</p>
+          <p id="invoice-number" class="font-mono text-sm text-stone-700">INV-000000-000</p>
+          <p id="invoice-date" class="text-xs text-stone-500 mt-0.5"></p>
+        </div>
+      </div>
+
+      <div id="invoice-cust-block" class="hidden pt-4 text-sm">
+        <p class="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-1">Ditagihkan kepada</p>
+        <p id="invoice-cust-name-out" class="font-semibold text-stone-800"></p>
+        <p id="invoice-cust-contact-out" class="text-stone-500"></p>
+      </div>
+
+      <table class="w-full mt-4 text-sm">
+        <thead>
+          <tr class="border-b border-stone-200 text-left text-xs uppercase tracking-wide text-stone-400">
+            <th class="py-2 font-semibold">Produk</th>
+            <th class="py-2 font-semibold text-center w-16">Qty</th>
+            <th class="py-2 font-semibold text-right w-28">Harga</th>
+            <th class="py-2 font-semibold text-right w-28">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="invoice-items"></tbody>
+      </table>
+
+      <div class="flex justify-end pt-3">
+        <div class="w-48 space-y-1.5 text-sm">
+          <div class="flex justify-between">
+            <span class="text-stone-500">Total</span>
+            <span id="invoice-total" class="font-bold font-mono text-stone-900">Rp 0</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-stone-400 border-t border-stone-200 mt-4 pt-3">
+        Invoice ini adalah ringkasan pesanan sementara. Harga final, ongkos kirim, dan estimasi produksi akan dikonfirmasi oleh tim kami melalui WhatsApp sebelum pembayaran.
+      </p>
+    </div>
+    <!-- ============ END AREA CETAK ============ -->
+
+    <!-- Aksi (hidden on print) -->
+    <div class="flex flex-col sm:flex-row gap-2.5 px-5 pb-5 pt-1 print:hidden">
+      <button id="invoice-print-btn" type="button"
+        class="flex-1 flex items-center justify-center gap-2 rounded-2xl border-2 border-stone-300 dark:border-stone-700 text-stone-700 dark:text-stone-200 font-semibold py-2.5 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800">
+        <i class='bx bx-printer text-lg'></i> Cetak / Simpan PDF
+      </button>
+      <a id="invoice-wa-btn" href="#" target="_blank" rel="noopener"
+        class="flex-1 flex items-center justify-center gap-2 rounded-2xl bg-forest-600 hover:bg-forest-700 text-white font-semibold py-2.5 transition-colors">
+        <i class='bx bxl-whatsapp text-lg'></i> Kirim via WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ================= LIGHTBOX MODAL ================= -->
 <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-label="Pratinjau gambar">
