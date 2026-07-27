@@ -141,6 +141,19 @@
   /* testimonial slide fade */
   .testi-slide { transition: opacity .4s ease; }
 
+  /* deskripsi produk: dipotong 2 baris, expand via tombol "Lihat Selengkapnya" */
+  .desc-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .desc-clamp.is-expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+
   /* keep floating WhatsApp button clear of iOS/Android safe-area */
   a[aria-label="Hubungi via WhatsApp"] {
     bottom: calc(1.25rem + env(safe-area-inset-bottom));
@@ -453,7 +466,7 @@
 
     <!-- category filter + search -->
     <div class="flex flex-col sm:flex-row sm:items-center gap-3 mt-8">
-      <div class="flex flex-wrap gap-2.5" id="category-filter">
+      <div class="flex flex-wrap items-center gap-2.5" id="category-filter">
         <button data-category="all" class="category-btn is-active px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Semua</button>
         <button data-category="bulat-50" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 50L</button>
         <button data-category="bulat-80" class="category-btn px-4 py-2 rounded-full text-sm font-semibold font-mono border transition-colors">Bulat 80L</button>
@@ -483,7 +496,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 50L - 1 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">1 set terdiri dari 1 tempat sampah beserta tiang penyangga. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 90 cm, lebar 50 cm, tinggi 60 cm, cat hitam, material besi pipa galvalum 1,5 inch.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-1">1 set terdiri dari 1 tempat sampah beserta tiang penyangga. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 90 cm, lebar 50 cm, tinggi 60 cm, cat hitam, material besi pipa galvalum 1,5 inch.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-1">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2050L%20-%201%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -511,7 +525,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 50L - 2 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">1 set terdiri dari 2 tempat sampah beserta tiang penyangga. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-2">1 set terdiri dari 2 tempat sampah beserta tiang penyangga. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-2">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2050L%20-%202%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -540,7 +555,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 50L - 3 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Model bulat 3 pilah. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang: tinggi 60 cm, lebar 40 cm, panjang 130 cm, besi pipa galvalum 1,5 inch, cat hitam.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-3">Model bulat 3 pilah. Kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang: tinggi 60 cm, lebar 40 cm, panjang 130 cm, besi pipa galvalum 1,5 inch, cat hitam.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-3">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2050L%20-%203%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -569,7 +585,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 50L - 4 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">1 set terdiri dari 4 tempat sampah dengan warna berbeda beserta tiang penyangga. Material fiberglass, kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 210 cm, lebar 40 cm, tinggi 60 cm, cat hitam, material pipa galvalum 1,5 inch.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-4">1 set terdiri dari 4 tempat sampah dengan warna berbeda beserta tiang penyangga. Material fiberglass, kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 210 cm, lebar 40 cm, tinggi 60 cm, cat hitam, material pipa galvalum 1,5 inch.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-4">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2050L%20-%204%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -597,7 +614,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 50L - 5 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">1 set terdiri dari 5 tempat sampah dengan warna berbeda beserta tiang penyangga. Material fiberglass, kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 220 cm, lebar 50 cm, tinggi 60 cm, cat hitam, material pipa galvalum 1,5 inch.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-5">1 set terdiri dari 5 tempat sampah dengan warna berbeda beserta tiang penyangga. Material fiberglass, kapasitas 50 liter/tong — tinggi tong 40 cm, diameter 43 cm, tinggi tong + tutup 55 cm. Tiang penyangga: panjang 220 cm, lebar 50 cm, tinggi 60 cm, cat hitam, material pipa galvalum 1,5 inch.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-5">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2050L%20-%205%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -625,7 +643,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 80L - 1 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">1 set terdiri dari 1 tempat sampah beserta tiang penyangga. Material fiberglass, kapasitas 80 liter/tong — tinggi tong 55 cm, diameter 43 cm, tinggi tong + tutup 70 cm. Tiang penyangga: panjang 45 cm, lebar 50 cm, tinggi 70 cm, cat hitam, material besi pipa galvalum 1,5 inch.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-6">1 set terdiri dari 1 tempat sampah beserta tiang penyangga. Material fiberglass, kapasitas 80 liter/tong — tinggi tong 55 cm, diameter 43 cm, tinggi tong + tutup 70 cm. Tiang penyangga: panjang 45 cm, lebar 50 cm, tinggi 70 cm, cat hitam, material besi pipa galvalum 1,5 inch.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-6">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2080L%20-%201%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -653,7 +672,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 80L - 2 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-7">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-7">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2080L%20-%202%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -681,7 +701,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 80L - 3 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-8">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-8">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2080L%20-%203%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -709,7 +730,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 80L - 4 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-9">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-9">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2080L%20-%204%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -737,7 +759,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 80L - 5 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-10">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-10">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2080L%20-%205%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -765,7 +788,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 30L - 1 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Solusi ringkas untuk area dengan satu jenis sampah umum.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-11">Solusi ringkas untuk area dengan satu jenis sampah umum.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-11">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2030L%20-%201%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -793,7 +817,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 30L - 2 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-12">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-12">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2030L%20-%202%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -821,7 +846,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 30L - 3 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-13">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-13">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2030L%20-%203%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -849,7 +875,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 30L - 4 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-14">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-14">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2030L%20-%204%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -877,7 +904,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Bulat 30L - 5 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-15">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-15">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Bulat%2030L%20-%205%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -905,7 +933,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Oval 60L - 1 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Solusi ringkas untuk area dengan satu jenis sampah umum.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-16">Solusi ringkas untuk area dengan satu jenis sampah umum.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-16">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Oval%2060L%20-%201%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -933,7 +962,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Oval 60L - 2 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-17">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-17">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Oval%2060L%20-%202%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -961,7 +991,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Oval 60L - 3 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-18">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-18">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Oval%2060L%20-%203%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -989,7 +1020,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Oval 60L - 4 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-19">Pemilahan lengkap untuk Bogor dan kampus besar.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-19">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Oval%2060L%20-%204%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -1017,7 +1049,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Oval 60L - 5 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-20">Organik, non organik, B3, kertas, dan lainnya — pemilahan paling lengkap.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-20">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Oval%2060L%20-%205%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -1045,7 +1078,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Kaleng 20L - 2 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-21">Memisahkan sampah organik dan anorganik sejak dari sumber.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-21">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±7-10 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Kaleng%2020L%20-%202%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -1073,7 +1107,8 @@
         </div>
         <div class="p-5">
           <h3 class="font-display font-bold text-stone-900">Bak Sampah Kaleng 20L - 3 Pilah</h3>
-          <p class="text-sm text-stone-500 mt-1">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <p class="text-sm text-stone-500 mt-1 desc-clamp js-desc" id="desc-22">Organik, anorganik, dan B3 — cocok untuk fasilitas kesehatan.</p>
+          <button type="button" class="js-desc-toggle hidden text-xs font-semibold text-forest-600 mt-1 hover:underline" data-target="desc-22">Lihat Selengkapnya</button>
           <div class="flex items-center justify-between mt-4">
             <span class="text-xs font-mono text-stone-400">Produksi ±10-14 hari</span>
             <a href="https://wa.me/6289689072275?text=Halo%2C%20saya%20tertarik%20dengan%20Bak%20Sampah%20Kaleng%2020L%20-%203%20Pilah" target="_blank" rel="noopener" class="text-forest-600 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all">Tanya <i class='bx bx-right-arrow-alt'></i></a>
@@ -1926,6 +1961,15 @@
   </div>
 </div>
 
+<!-- ================= LIGHTBOX MODAL ================= -->
+<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-label="Pratinjau gambar">
+  <button type="button" id="lightbox-close" aria-label="Tutup pratinjau" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white grid place-items-center text-2xl leading-none transition-colors">&times;</button>
+  <figure class="max-w-3xl w-full">
+    <img id="lightbox-img" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain rounded-2xl bg-white" />
+    <figcaption id="lightbox-caption" class="text-center text-stone-200 text-sm font-medium mt-4"></figcaption>
+  </figure>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
   // ---------- Mobile menu ----------
@@ -1973,6 +2017,25 @@
   })();
 
   // ---------- Category filter ----------
+  // ---------- Deskripsi produk: tampilkan tombol "Lihat Selengkapnya" hanya jika teks benar-benar terpotong ----------
+  (function initDescToggle(){
+    var descs = document.querySelectorAll('.js-desc');
+    descs.forEach(function(desc){
+      var toggle = document.querySelector('.js-desc-toggle[data-target="' + desc.id + '"]');
+      if (!toggle) return;
+      // beri jeda sedikit supaya font & layout selesai dirender sebelum diukur
+      requestAnimationFrame(function(){
+        if (desc.scrollHeight > desc.clientHeight + 1){
+          toggle.classList.remove('hidden');
+        }
+      });
+      toggle.addEventListener('click', function(){
+        var expanded = desc.classList.toggle('is-expanded');
+        toggle.textContent = expanded ? 'Sembunyikan' : 'Lihat Selengkapnya';
+      });
+    });
+  })();
+
   (function initFilter(){
     var buttons = document.querySelectorAll('.category-btn');
     var cards = document.querySelectorAll('.product-card');
@@ -2695,13 +2758,5 @@
   })();
 </script>
 
-<!-- ================= LIGHTBOX MODAL ================= -->
-<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4" role="dialog" aria-modal="true" aria-label="Pratinjau gambar">
-  <button type="button" id="lightbox-close" aria-label="Tutup pratinjau" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white grid place-items-center text-2xl leading-none transition-colors">&times;</button>
-  <figure class="max-w-3xl w-full">
-    <img id="lightbox-img" src="" alt="" class="w-full h-auto max-h-[80vh] object-contain rounded-2xl bg-white" />
-    <figcaption id="lightbox-caption" class="text-center text-stone-200 text-sm font-medium mt-4"></figcaption>
-  </figure>
-</div>
 </body>
 </html>
